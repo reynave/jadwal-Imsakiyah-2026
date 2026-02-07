@@ -1,0 +1,57 @@
+/* Font-face declarations for custom typography assets */
+
+@font-face {
+	font-family: "ArialBold";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Arial Bold"), local("Arial-Bold"), url("./arialbd.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "DINOTBold9";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("DINOT Bold"), url("./DINOT-Bold 9.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "DINOTCondBlack";
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: local("DINOT Cond Black"), url("./DINOT-CondBlack.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "DINOTCondBold";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("DINOT Cond Bold"), url("./DINOT-CondBold.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "DINOTMedium5";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: local("DINOT Medium"), url("./DINOT-Medium 5.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "HelveticaNeueLTStdBlk";
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: local("Helvetica Neue LT Std Black"), url("./HelveticaNeueLTStd-Blk.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "JMHArkham";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("JMH Arkham"), url("./JMH Arkham.otf") format("opentype");
+}
