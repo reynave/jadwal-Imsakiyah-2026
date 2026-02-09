@@ -57,7 +57,7 @@ $(document).ready(function () {
     function loadJsonData(area = selectedCity) {
         return $.getJSON("assets/json/" + area + ".json").then(function (jsonData) {
             console.log(jsonData)
-            prov = jsonData && jsonData.kabko ? jsonData.kabko : '';
+            prov = jsonData && jsonData.prov ? jsonData.prov : '';
             data = jsonData && jsonData.data ? jsonData.data : {};
             return data;
         }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -70,7 +70,7 @@ $(document).ready(function () {
     function setActiveCityButton(city) {
         $(".btn-city").removeClass("btn-city-active");
         $('.btn-city[data-city="' + city + '"]').addClass("btn-city-active");
-      
+        $("#selectCity").val(city);
     }
 
     function renderSchedule() {
@@ -115,7 +115,7 @@ $(document).ready(function () {
             if (i == 3) {
                 dayNumber = `
             <div class="col">
-                <a data-bs-toggle="modal"  data-bs-target="#exampleModal${i}" href="javascript:;">
+                <a data-bs-toggle="modal"    data-bs-target="#exampleModal${i}" href="javascript:;">
                     <div class="btn-day btn-day-active">
                         <div class="btn-day-active-inside">
                             <img src="./assets/imgs/days/kalende-per-hari_${i}.png" width="100%">
@@ -172,43 +172,31 @@ $(document).ready(function () {
             selectedCity = city;
             localStorage.setItem("selectedCity", city);
             renderSchedule();
-          //  $("#selectCity").val(city);
+            $("#selectCity").val(city);
         });
     }
-
-    function initializeCitySelection() {
-        //buatkan select option berdasarkan isi dari assets/json/*.json, pakah bisa baca file dari folder json?
-        $.getJSON("assets/js/cities.json").then(function (citiesData) {
-            var $selectCity = $("#selectCity"); 
-            $selectCity.empty();
-            $.each(citiesData, function (index, city) {
-                var option = $("<option></option>")
-                    .attr("value", city.id)
-                    .text(city.name);
-                $selectCity.append(option);
-            }
-            );
-            $selectCity.val(selectedCity); 
-        });
-        
-    }
-
 
     loadAndRenderCity(selectedCity);
 
     $(document).on("change", "#selectCity", function () {
-         var city = $(this).val();
-      
+        var city = $(this).val();
+        if (!city || city === selectedCity) {
+            $(this).val(selectedCity);
+            return;
+        }
         loadAndRenderCity(city);
     });
 
     $(document).on("click", ".btn-city[data-city]", function (event) {
         event.preventDefault();
         var city = $(this).data("city");
-         
-        console.log("clicked city:", city);
-    
-
+        if (!city) {
+            return;
+        }
+        if (city === selectedCity) {
+            setActiveCityButton(city);
+            return;
+        }
         loadAndRenderCity(city);
     });
     var modalClosedViaPopstate = false; 

@@ -39,11 +39,12 @@ Landing page statis yang menampilkan kalender interaktif jadwal imsakiyah dan wa
 - jQuery 3.x untuk DOM manipulation sederhana.
 - Animate.css 4.1 untuk efek masuk (fade/zoom).
 - Aset grafis raster (PNG) yang dioptimasi untuk tampilan retina.
-
-### Pengembangan Lanjutan
 - Integrasikan data jadwal dinamis (JSON/CSV) lalu render otomatis menggantikan gambar statis.
-- Tambahkan form langganan atau CTA promosi produk Ramadan.
-- Optimalkan performa dengan preloading font dan compress gambar tambahan.
+
 
 ### Lisensi
-Belum ditentukan. Sesuaikan dengan kebutuhan tim/klien sebelum dipublikasikan.
+© 2026 Panasonic Indonesia & PT Gobel Indonesia. Seluruh konten, desain, dan aset visual dalam proyek ini adalah milik eksklusif Panasonic Indonesia dan PT Gobel Indonesia.
+
+**Penggunaan terbatas**: Proyek ini dikembangkan khusus untuk kampanye Ramadan 1446 H/2025. Penggunaan, reproduksi, atau distribusi ulang tanpa izin tertulis dari Panasonic Indonesia atau PT Gobel Indonesia dilarang.
+
+Untuk pertanyaan lisensi atau permintaan penggunaan lebih lanjut, silakan hubungi tim legal Panasonic Indonesia.
