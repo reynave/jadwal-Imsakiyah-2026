@@ -1,7 +1,7 @@
 let selectedCity = localStorage.getItem("selectedCity") || "jakarta";
-if(localStorage.getItem("selectedCity")===null){
+if (localStorage.getItem("selectedCity") === null) {
     localStorage.setItem("selectedCity", "jakarta");
-}   
+}
 
 $(function () {
     var $moonStar = $(".bulanbintang-area img");
@@ -45,13 +45,13 @@ $(function () {
 let today = new Date();
 let day = today.getDate(); // returns the day of the month (1-31)
 // bisa buatkan today di tambah 2 hari dengan format misal 2 Febuari 2026
-let twoDaysLater = new Date(today); 
+let twoDaysLater = new Date(today);
 twoDaysLater.setDate(today.getDate() + 2);
 const baseScheduleDate = new Date(2026, 1, 18); // 18 Februari 2026 sebagai tanggal awal jadwal
- 
-  
+
+
 $(document).ready(function () {
- 
+
     let data = {};
     let prov = '';
     function loadJsonData(area = selectedCity) {
@@ -70,31 +70,40 @@ $(document).ready(function () {
     function setActiveCityButton(city) {
         $(".btn-city").removeClass("btn-city-active");
         $('.btn-city[data-city="' + city + '"]').addClass("btn-city-active");
-      
+
     }
 
+    const scheduleDays = [ 
+        219, 220, 221, 222, 223, 224, 225, 226, 227, 228,
+        301, 302, 303, 304, 305, 306, 307, 308, 309, 310,
+        311, 312, 313, 314, 315, 316, 317, 318, 319, 320,
+    ];
     function renderSchedule() {
         $("#row1, #row2, #row3, #mobileDays, #modalTimeTemplate").empty();
 
+        //buat buatkan tanggal hari ini dengan format ddmmyyyy
+        let todayFormatted = ((today.getMonth() + 1) * 100) + today.getDate();
+        console.log("Hari ini tanggal:", todayFormatted);
         for (let i = 1; i <= 30; i++) {
+
             const dayRecord = data[i] || {};
 
             let colDiv = $(`
-            <div class="col-2">
-                <a href="#timeModalTemplate${i}" class='action-day'  data-id="${i}">
-                    <div class="btn-day" data-bs-toggle="modal" data-bs-target="#exampleModal${i}" >
-                        <img src="./assets/imgs/days/kalende-per-hari_${i}.png" width="100%">
-                    </div>
-                </a>
-            </div>
-        `);
-            if (i == 3) {
+                <div class="col-2">
+                    <a href="#timeModalTemplate${i}" class='action-day'  data-id="${i}">
+                        <div class="btn-day" data-bs-toggle="modal" data-bs-target="#exampleModal${i}" >
+                            <img src="./assets/imgs/days/kalende-per-hari_${i}.png" width="100%">
+                        </div>
+                    </a>
+                </div>
+            `);
+            if (scheduleDays[i-1] == todayFormatted) {
                 colDiv = $(`
             <div class="col-2">
             <a  href="#timeModalTemplate${i}">
                 <div class="btn-day btn-day-active" data-bs-toggle="modal" data-bs-target="#exampleModal${i}">
                     <div class="btn-day-active-inside">
-                        <img src="./assets/imgs/days/kalende-per-hari_3.png" width="100%">
+                        <img src="./assets/imgs/days/kalende-per-hari_${i}.png" width="100%">
                     </div>
                 </div>
                 </a>
@@ -111,8 +120,8 @@ $(document).ready(function () {
                     </div>
                 </a>
             </div>
-        `;
-            if (i == 3) {
+            `;
+            if (scheduleDays[i-1] == todayFormatted) {
                 dayNumber = `
             <div class="col">
                 <a data-bs-toggle="modal"  data-bs-target="#exampleModal${i}" href="javascript:;">
@@ -125,6 +134,7 @@ $(document).ready(function () {
             </div>
             `;
             }
+
 
             if (i <= 10) {
                 $("#row1").append(dayNumber);
@@ -145,16 +155,16 @@ $(document).ready(function () {
                         displayDate.setDate(baseScheduleDate.getDate() + offsetDay);
                         return displayDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
                     }
-                    case "ashar": return dayRecord.ashar || ""; 
-                    case "dhuha": return dayRecord.dhuha || ""; 
-                    case "dzuhur": return dayRecord.dzuhur || ""; 
-                    case "imsak": return dayRecord.imsak || ""; 
-                    case "isya": return dayRecord.isya || ""; 
-                    case "maghrib": return dayRecord.maghrib || ""; 
-                    case "subuh": return dayRecord.subuh || ""; 
-                    case "terbit": return dayRecord.terbit || ""; 
-                    case "prov": return prov || ""; 
-                    
+                    case "ashar": return dayRecord.ashar || "";
+                    case "dhuha": return dayRecord.dhuha || "";
+                    case "dzuhur": return dayRecord.dzuhur || "";
+                    case "imsak": return dayRecord.imsak || "";
+                    case "isya": return dayRecord.isya || "";
+                    case "maghrib": return dayRecord.maghrib || "";
+                    case "subuh": return dayRecord.subuh || "";
+                    case "terbit": return dayRecord.terbit || "";
+                    case "prov": return prov || "";
+
                     default: return "";
                 }
             });
@@ -171,47 +181,64 @@ $(document).ready(function () {
         return loadJsonData(city).then(function () {
             selectedCity = city;
             localStorage.setItem("selectedCity", city);
+            $('.loading').hide()
             renderSchedule();
-          //  $("#selectCity").val(city);
+            //  $("#selectCity").val(city);
         });
     }
 
     function initializeCitySelection() {
         //buatkan select option berdasarkan isi dari assets/json/*.json, pakah bisa baca file dari folder json?
         $.getJSON("assets/js/cities.json").then(function (citiesData) {
-            var $selectCity = $("#selectCity"); 
+            var $selectCity = $("#selectCity");
+            var $itemCities = $("#itemCities");
             $selectCity.empty();
             $.each(citiesData, function (index, city) {
                 var option = $("<option></option>")
-                    .attr("value", city.id)
-                    .text(city.name);
+                    .attr("value", city)
+                    .text(city.toUpperCase());
                 $selectCity.append(option);
+
+
+                var cityButton = $(`<div class="col-12 col-md-6">
+                                    <a href="javascript:void(0);" class="btn btn-city" data-bs-dismiss="modal" data-city="${city}" onclick="return false;">
+                                        ${city.toUpperCase()}
+                                    </a>
+                                </div>`); 
+                $itemCities.append(cityButton);
+
+                
+
             }
             );
-            $selectCity.val(selectedCity); 
+            $selectCity.val(selectedCity);
         });
-        
-    }
 
+    }
+    initializeCitySelection();
 
     loadAndRenderCity(selectedCity);
 
-    $(document).on("change", "#selectCity", function () {
-         var city = $(this).val();
-      
+    $(document).on("change", "#selectCity", function (event) {
+        event.preventDefault();
+        var city = $(this).val();
+        localStorage.setItem("selectedCity", city);
         loadAndRenderCity(city);
+
     });
 
     $(document).on("click", ".btn-city[data-city]", function (event) {
         event.preventDefault();
+        $('#selectCity').val($(this).data("city"));
+        // var city = $(this).data("city");
+        localStorage.setItem("selectedCity", $(this).data("city"));
         var city = $(this).data("city");
-         
         console.log("clicked city:", city);
-    
+
 
         loadAndRenderCity(city);
     });
-    var modalClosedViaPopstate = false; 
+    var modalClosedViaPopstate = false;
     if (window.history && window.history.pushState) {
         $(document).on("shown.bs.modal", ".modal", function () {
             if (!this.dataset.modalHistoryPushed) {
@@ -249,5 +276,5 @@ $(document).ready(function () {
                 $(openModal).removeClass("show").attr("aria-hidden", "true").hide();
             }
         });
-    } 
+    }
 });

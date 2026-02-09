@@ -35,6 +35,11 @@ h3 {
     font-family: "DINOTBold9";
 }
 
+.loading {
+    font-family: "DINOTBold9";
+   
+    color: #fff;
+}
 .wrapper {
     max-width: 1612px;
     margin: 0 auto;
@@ -174,7 +179,7 @@ h3 {
     left: 30%;
 }
 
-.form-control {
+.form-control  {
     font-family: "ArialBold";
     font-size: 1rem;
 }
@@ -183,7 +188,13 @@ h3 {
     font-family: "DINOTCondBlack";
     font-size: 1.2rem;
 }
+.DINOTCondBold {
+    font-family: "DINOTCondBold";
+}
 
+.DINOTBold9 {
+    font-family: "DINOTBold9";
+}
 .at {
     font-family: "ArialBold";
 }

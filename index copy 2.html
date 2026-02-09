@@ -114,7 +114,7 @@
 						<div class="d-none d-sm-block">
 							<div class="row g-1 mb-1">
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city " data-city="jakarta"
+									<a href="javascript:void(0);" class="btn btn-city btn-city-active" data-city="jakarta"
 										onclick="return false;">
 										DKI JAKARTA
 									</a>
@@ -126,76 +126,66 @@
 									</a>
 								</div>
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="semarang"
-										onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="semarang" onclick="return false;">
 										SEMARANG
 									</a>
 								</div>
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="yogyakarta"
-										onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="yogyakarta" onclick="return false;">
 										YOGYAKARTA
 									</a>
 								</div>
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="surabaya"
-										onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="surabaya" onclick="return false;">
 										SURABAYA
 									</a>
 								</div>
 							</div>
 							<div class="row g-1 mt-1">
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="denpasar"
-										onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="denpasar" onclick="return false;">
 										DENPASAR
 									</a>
 								</div>
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="makassar"
-										onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="makassar" onclick="return false;">
 										MAKASSAR
 									</a>
 								</div>
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="manado"
-										onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="manado" onclick="return false;">
 										MANADO
 									</a>
 								</div>
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="samarinda"
-										onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="samarinda" onclick="return false;">
 										SAMARINDA
 									</a>
 								</div>
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="banjarmasin"
-										onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="banjarmasin" onclick="return false;">
 										BANJARMASIN
 									</a>
 								</div>
 							</div>
 							<div class="row g-1 mt-1">
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="palembang"
-										onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="palembang"	 onclick="return false;">
 										PALEMBANG
 									</a>
 								</div>
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="pekanbaru"
-										onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="pekanbaru" onclick="return false;">
 										PEKANBARU
 									</a>
 								</div>
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="batam" onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="batam"	 onclick="return false;">
 										BATAM
 									</a>
 								</div>
 								<div class="col">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="aceh" onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="bandaaceh"	 onclick="return false;">
 										BANDA ACEH
 									</a>
 								</div>
@@ -292,7 +282,8 @@
 									</a>
 								</div>
 								<div class="col-4">
-									<a href="javascript:void(0);" class="btn btn-city" data-city="aceh" onclick="return false;">
+									<a href="javascript:void(0);" class="btn btn-city" data-city="bandaaceh"
+										onclick="return false;">
 										BANDA ACEH
 									</a>
 								</div>
@@ -306,41 +297,17 @@
 						<!-- END : ver mobile -->
 
 						<div class="row my-3">
-							<!-- <div class="col-12 d-grid">
-								<h5 class="ms-2">Cari kota lainnya...</h5>
+							<div class="col-12">
 								<select class="form-control form-control-lg rounded-pill" id="selectCity"
-									placeholder="Pilih Kota">
+									placeholder="Pilih Kota"> 
+									<option value="jakarta">Cari kota lainnya...</option>
+									
+									<option value="c">c</option>
+									<option value="a">a</option>
+									<option value="b">b</option>
+
+
 								</select>
-							</div> -->
-
-							<div class="col-12 d-grid">
-								<button type="button" class="btn btn-light btn-lg rounded-pill DINOTCondBold"
-									data-bs-toggle="modal" data-bs-target="#selectCityModal">
-									Cari kota lainnya...
-								</button>
-
-								<!-- Modal -->
-								<div class="modal fade" id="selectCityModal" tabindex="-1"
-									aria-labelledby="selectCityModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<strong class="DINOTBold9" id="selectCityModalLabel">Cari kota lainnya...</strong>
-												<button type="button" class="btn-close" data-bs-dismiss="modal"
-													aria-label="Close"></button>
-											</div>
-											<div class="modal-body" style="max-height: 75vh; overflow-y: auto;">
-												<div  class="row g-1" id="itemCities"> 
-												</div>
-											</div>
-											<div class="modal-body d-grid border-top">
-												<button type="button" class="btn btn-secondary"
-													data-bs-dismiss="modal">Close</button>
-
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 
@@ -357,9 +324,6 @@
 
 							<!-- ver mobile -->
 							<div class="days-area-inside d-block d-sm-none">
-								<div class="p-5 text-center loading">
-									<h1 class="text-center">Loading...</h1>
-								</div>
 								<div class="row g-0" id="mobileDays"></div>
 							</div>
 
