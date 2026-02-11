@@ -32,10 +32,32 @@
 	<link rel="stylesheet" href="./assets/fonts/fonts.css">
 	<link rel="stylesheet" href="./assets/style/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
+	<style>
+		.dev{
+			font-family: 'Courier New', Courier, monospace;
+			position: fixed;
+			z-index: 999;
+			top:0;
+			width: 100%;
+			margin: 0 auto;
+			
+		}
+		.dev .border{
+			border: 1px dotted red !important;
+		}
+	</style>
 </head>
 
 <body>
+	 
+	<!-- <div class="dev">
+		<div class="container">
+			<div class="row g-0">
+				<div class="col-6 text-center border" style="height: 100vh;">left</div>
+				<div class="col-6 text-center border" style="height: 100vh;">right</div>
+			</div>
+		</div>
+	</div> -->
 	<div class="bgn main">
 		<div class="mobile-only">
 			<div class="container-fluid">
@@ -50,8 +72,10 @@
 				</div>
 
 			</div>
-			<div class="mobile-art-area " style="background: url('./assets/imgs/bg_blur_extract.png') no-repeat; background-size: 90%;
-			background-position: center 0px;
+			<div class="mobile-art-area " style="
+			background: url('./assets/imgs/bg_blur_extract.png') no-repeat; 
+			    background-size: 95%;
+    background-position: 2px 0px;
 			">
 				<div class="mobile-art-lentera  ">
 					<img src="./assets/imgs/lentera.png" width="100%">
@@ -89,8 +113,8 @@
 								<img src="./assets/imgs/masjid.png" width="100%">
 							</div>
 
-							<div class="img-masjid">
-								<img src="./assets/imgs/bg_blur_extract.png" width="100%">
+							<div class="img-masjid ">
+								<img src="./assets/imgs/bg_blur_extract.png" width="100%" style="margin-left: -18px;">
 							</div>
 						</div>
 					</div>
