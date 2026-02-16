@@ -129,11 +129,14 @@ h3 {
     padding: 3px;
     border-radius: 20px;
 }
-
+.list-item-content a{
+    color: black;
+    text-decoration: none;
+}
 
 /** art-area **/
 .art-area {
-    min-height: 80vh;
+ 
     position: relative;
 }
 
