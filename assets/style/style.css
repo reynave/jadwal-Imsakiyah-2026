@@ -418,11 +418,19 @@ h3 {
     background-color: #f6e8a3;
     margin: 20px 0;
 }
-.style-a p{
+.style-a p, .style-a p strong {
     font-size: 0.8rem !important; 
     margin-bottom: 0px !important;
-    padding-bottom: 0px !important;
+    padding-bottom: 0px !important;	font-family: "DINOTMedium5";
 }
+/* .style-a {
+  background: #DFE1C0;
+background: -webkit-linear-gradient(0deg, rgba(223, 225, 192, 1) 0%, rgba(209, 208, 168, 1) 50%);
+background: -moz-linear-gradient(0deg, rgba(223, 225, 192, 1) 0%, rgba(209, 208, 168, 1) 50%);
+background: linear-gradient(0deg, rgba(223, 225, 192, 1) 0%, rgba(209, 208, 168, 1) 50%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#DFE1C0", endColorstr="#D1D0A8", GradientType=0);
+
+} */
 
 .list-item {
     display: flex;
