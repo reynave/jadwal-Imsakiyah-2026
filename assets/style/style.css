@@ -418,10 +418,10 @@ h3 {
     background-color: #f6e8a3;
     margin: 20px 0;
 }
-.modal-note p{
-    font-size: 0.8rem; 
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+.style-a p{
+    font-size: 0.8rem !important; 
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
 }
 
 .list-item {
