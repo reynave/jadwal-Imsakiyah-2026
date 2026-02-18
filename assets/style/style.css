@@ -407,9 +407,21 @@ h3 {
     font-family: "DINOTCondBlack";
     font-size: 1rem;
 }
-
-.modal-note {
-    font-size: 0.7rem;
+.gradient-line {
+    /* Set the height to define the line's thickness */
+    height: 5px;
+    /* Set the width as needed (e.g., 100% or a fixed value) */
+    width: 100%;
+    /* Apply the linear gradient */
+    /*background-image: linear-gradient(to right, red, yellow, blue);
+    /* Optional: add margin for spacing */
+    background-color: #f6e8a3;
+    margin: 20px 0;
+}
+.modal-note p{
+    font-size: 0.75rem; 
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 .list-item {
