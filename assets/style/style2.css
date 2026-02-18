@@ -516,3 +516,13 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#DFE1C0", endC
     }
 
 }
+
+.dev{
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 9999;
+}
+.dev .border{   
+    border: 1px solid red !important;
+}
